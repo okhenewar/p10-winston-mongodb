@@ -26,9 +26,9 @@ logger = new (winston.Logger)(
         
             new (winston.transports.MongoDB)({
 
-                name               : 'testlogs',
-                db                 : "mongodb://7kqyq:rv3b3@35.196.96.123:27017/backendapi_CheckMiddlewareChanges_r94to", //url from env
-                collection         : 'myLogs',
+                name               : process.env.name || 'testlogs',
+                db                 :  process.env.db,
+                collection         : process.env.collection || 'myLogs',
                 level              : 'heartbeat'
             })
         ],
